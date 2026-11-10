@@ -1,0 +1,118 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default Deny Catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        request.auth.token.email == 'omkarsathe298@gmail.com' ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // User Profiles
+    match /users/{userId} {
+      allow get: if isOwner(userId) || isAdmin();
+      allow list: if isAdmin();
+      allow create: if isOwner(userId) && request.resource.data.uid == request.auth.uid;
+      allow update: if (isOwner(userId) || isAdmin()) && request.resource.data.uid == resource.data.uid;
+      allow delete: if isAdmin();
+    }
+
+    // Admins
+    match /admins/{userId} {
+      allow read, write: if isAdmin();
+    }
+
+    // Conversations
+    match /conversations/{conversationId} {
+      allow get: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow list: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
+      allow update: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin()) && request.resource.data.userId == resource.data.userId;
+      allow delete: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+
+      // Messages in conversation
+      match /messages/{messageId} {
+        allow read: if isSignedIn() && (
+          get(/databases/$(database)/documents/conversations/$(conversationId)).data.userId == request.auth.uid || isAdmin()
+        );
+        allow create: if isSignedIn() && (
+          get(/databases/$(database)/documents/conversations/$(conversationId)).data.userId == request.auth.uid || isAdmin()
+        );
+        allow update, delete: if isAdmin();
+      }
+    }
+
+    // Learning Progress
+    match /progress/{progressId} {
+      allow get, list: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
+      allow update: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin()) && request.resource.data.userId == resource.data.userId;
+      allow delete: if isAdmin();
+    }
+
+    // Safety Checks / Scam Scanner Logs
+    match /safetyChecks/{checkId} {
+      allow get, list: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAdmin();
+    }
+
+    // User Feedback
+    match /feedback/{feedbackId} {
+      allow get, list: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAdmin();
+    }
+
+    // Trusted Contacts
+    match /contacts/{contactId} {
+      allow get, list: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+    }
+
+    // Caregiver Connections with Consent
+    match /caregivers/{connectionId} {
+      allow get, list: if isSignedIn() && (
+        resource.data.elderlyUserId == request.auth.uid || 
+        resource.data.caregiverEmail == request.auth.token.email || 
+        resource.data.caregiverUserId == request.auth.uid ||
+        isAdmin()
+      );
+      allow create: if isSignedIn() && (
+        request.resource.data.elderlyUserId == request.auth.uid ||
+        request.resource.data.caregiverEmail == request.auth.token.email
+      );
+      allow update: if isSignedIn() && (
+        resource.data.elderlyUserId == request.auth.uid || 
+        resource.data.caregiverEmail == request.auth.token.email ||
+        resource.data.caregiverUserId == request.auth.uid ||
+        isAdmin()
+      );
+      allow delete: if isSignedIn() && (resource.data.elderlyUserId == request.auth.uid || isAdmin());
+    }
+
+    // Knowledge Documents
+    match /documents/{documentId} {
+      allow read: if isSignedIn();
+      allow write: if isAdmin();
+    }
+  }
+}

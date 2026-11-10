@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-scale: 1;
+  }
+
+  html.font-size-normal {
+    font-size: 16px;
+  }
+
+  html.font-size-large {
+    font-size: 18.5px;
+  }
+
+  html.font-size-xlarge {
+    font-size: 21px;
+  }
+
+  /* High contrast mode for visually impaired seniors */
+  html.high-contrast {
+    filter: contrast(125%);
+    background-color: #000000 !important;
+    color: #ffffff !important;
+  }
+
+  html.high-contrast body {
+    background-color: #050505 !important;
+    color: #ffffff !important;
+  }
+
+  html.high-contrast .bg-white {
+    background-color: #121212 !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+  }
+
+  html.high-contrast .bg-slate-50,
+  html.high-contrast .bg-slate-100 {
+    background-color: #1a1a1a !important;
+    color: #ffffff !important;
+  }
+
+  html.high-contrast .text-slate-600,
+  html.high-contrast .text-slate-500,
+  html.high-contrast .text-slate-700 {
+    color: #e5e5e5 !important;
+  }
+
+  /* Accessible focus rings */
+  *:focus-visible {
+    outline: 3px solid #2563eb !important;
+    outline-offset: 3px !important;
+  }
+}
+
+/* Senior tap target helper */
+.tap-target-senior {
+  min-height: 52px;
+  min-width: 52px;
+}

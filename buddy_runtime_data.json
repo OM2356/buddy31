@@ -1,0 +1,221 @@
+{
+  "interactions": [
+    {
+      "userId": "test-senior",
+      "agentUsed": "education",
+      "intent": "EDUCATION",
+      "question": "How do I send photos on WhatsApp?",
+      "answer": "Here is the simplest way to do it, step-by-step:\n\n1. Gently tap the icon on your screen with the pad of your finger (like pressing a doorbell softly).\n2. If you need to see more, slide your finger smoothly up or down the glass.\n3. Remember: you cannot break your phone by exploring. If you ever feel lost, tap the round Home button at the bottom to return to safety.",
+      "language": "en",
+      "verificationStatus": "VERIFIED",
+      "confidenceScore": 0.95,
+      "responseTimeMs": 1,
+      "id": "int-1794324400779-l5n3o",
+      "timestamp": "2026-11-10T15:26:40.779Z"
+    },
+    {
+      "userId": "test-user",
+      "agentUsed": "education",
+      "intent": "EDUCATION",
+      "question": "How to send photo?",
+      "answer": "Tap paperclip icon and select picture.",
+      "language": "en",
+      "verificationStatus": "VERIFIED",
+      "confidenceScore": 0.95,
+      "responseTimeMs": 85,
+      "id": "int-1794324400776-q6jyg",
+      "timestamp": "2026-11-10T15:26:40.776Z"
+    },
+    {
+      "userId": "demo-elder-dadi",
+      "agentUsed": "emergency",
+      "intent": "EMERGENCY",
+      "question": "I fell down and my knee is bleeding",
+      "answer": "🚨 EMERGENCY GUIDANCE:\n\n1. Please remain calm and do not attempt to rush or move abruptly. Sit or rest safely.\n2. Immediately dial 112 (All-in-One Emergency) or 108 (Ambulance).\n3. Alert a nearby family member or neighbor.\n\n(Buddy has placed direct one-tap call buttons on your screen. Tap Call 112 to connect with emergency operators immediately.)",
+      "language": "en",
+      "verificationStatus": "SAFETY_OVERRIDE",
+      "confidenceScore": 1,
+      "responseTimeMs": 1,
+      "id": "int-1794324383644-0108h",
+      "timestamp": "2026-11-10T15:26:23.644Z"
+    },
+    {
+      "userId": "demo-elder-dadi",
+      "agentUsed": "safety",
+      "intent": "SAFETY_SCAM",
+      "question": "Someone called asking for my bank OTP to verify my account",
+      "answer": "**⚠️ URGENT: THIS IS A SCAM. DO NOT SHARE ANYTHING.**\n\nPlease listen carefully: **This is a classic fraud attempt.** No legitimate bank, government official, or company will ever call you and ask for your OTP (One-Time Password) to \"verify\" your account. If you share that code, they will gain full access to your money and can drain your account instantly.\n\n### Follow these 3 immediate steps to stay safe:\n\n1.  **DO NOT SHARE:** Never give out your OTP, UPI PIN, or any password to anyone over the phone, regardless of who they claim to be. Hang up immediately.\n2.  **DISCONNECT & BLOCK:** End the call right now. Do not call them back and do not click on any links they may have sent you via SMS or WhatsApp. Block the caller's number.\n3.  **REPORT & SECURE:** If you have already shared any information or if money has been deducted from your account, **call the National Cyber Crime Helpline at 1930 immediately** or visit [www.cybercrime.gov.in](https://www.cybercrime.gov.in). Also, contact your bank’s official customer care number (found on the back of your debit card or their official website) to freeze your account.\n\n### The Golden Rule of Digital Safety:\n**NEVER share your OTP, UPI PIN, or passwords with anyone.** These codes are for your eyes only. If someone is asking for them, they are trying to steal from you. \n\nPlease stay alert and do not engage with this person any further.",
+      "language": "en",
+      "verificationStatus": "SAFETY_OVERRIDE",
+      "confidenceScore": 1,
+      "responseTimeMs": 27901,
+      "id": "int-1794324373652-vckcw",
+      "timestamp": "2026-11-10T15:26:13.652Z"
+    },
+    {
+      "userId": "demo-elder-dadi",
+      "agentUsed": "education",
+      "intent": "EDUCATION",
+      "question": "How do I make a video call on WhatsApp?",
+      "answer": "Hello! I am Buddy, your Digital Education Agent. I am so happy to help you connect with your family today.\n\nFirst, please remember: **You cannot break your phone by pressing the wrong button.** If you get lost, just look for the \"back\" arrow or the home button to start over. You are doing great!\n\nHere is how to make a video call on WhatsApp:\n\n1. **Open WhatsApp:** Tap the green chat icon on your screen. Tap on the name of the person you want to see.\n2. **Start the call:** Look at the top-right corner of your screen and tap the small icon that looks like a **video camera**.\n3. **Position yourself:** Hold your phone steady at eye level, just like you are looking into a mirror, so your family can see your face clearly.\n4. **End the call:** When you are finished talking, tap the **red circle button** at the bottom of the screen to hang up.\n\nThat is all there is to it! Would you like to try it now?",
+      "language": "en",
+      "verificationStatus": "VERIFIED",
+      "confidenceScore": 0.95,
+      "responseTimeMs": 2345,
+      "id": "int-1794324338526-m7hr2",
+      "timestamp": "2026-11-10T15:25:38.526Z"
+    },
+    {
+      "userId": "test-senior",
+      "agentUsed": "education",
+      "intent": "EDUCATION",
+      "question": "How do I send photos on WhatsApp?",
+      "answer": "Here is the simplest way to do it, step-by-step:\n\n1. Gently tap the icon on your screen with the pad of your finger (like pressing a doorbell softly).\n2. If you need to see more, slide your finger smoothly up or down the glass.\n3. Remember: you cannot break your phone by exploring. If you ever feel lost, tap the round Home button at the bottom to return to safety.",
+      "language": "en",
+      "verificationStatus": "VERIFIED",
+      "confidenceScore": 0.95,
+      "responseTimeMs": 1,
+      "id": "int-1794324272153-jr1w4",
+      "timestamp": "2026-11-10T15:24:32.153Z"
+    },
+    {
+      "userId": "test-user",
+      "agentUsed": "education",
+      "intent": "EDUCATION",
+      "question": "How to send photo?",
+      "answer": "Tap paperclip icon and select picture.",
+      "language": "en",
+      "verificationStatus": "VERIFIED",
+      "confidenceScore": 0.95,
+      "responseTimeMs": 85,
+      "id": "int-1794324272150-f9h81",
+      "timestamp": "2026-11-10T15:24:32.150Z"
+    },
+    {
+      "userId": "test-senior",
+      "agentUsed": "education",
+      "intent": "EDUCATION",
+      "question": "How do I send photos on WhatsApp?",
+      "answer": "Here is the simplest way to do it, step-by-step:\n\n1. Gently tap the icon on your screen with the pad of your finger (like pressing a doorbell softly).\n2. If you need to see more, slide your finger smoothly up or down the glass.\n3. Remember: you cannot break your phone by exploring. If you ever feel lost, tap the round Home button at the bottom to return to safety.",
+      "language": "en",
+      "verificationStatus": "VERIFIED",
+      "confidenceScore": 0.95,
+      "responseTimeMs": 1,
+      "id": "int-1794323783852-bd87f",
+      "timestamp": "2026-11-10T15:16:23.852Z"
+    },
+    {
+      "userId": "test-user",
+      "agentUsed": "education",
+      "intent": "EDUCATION",
+      "question": "How to send photo?",
+      "answer": "Tap paperclip icon and select picture.",
+      "language": "en",
+      "verificationStatus": "VERIFIED",
+      "confidenceScore": 0.95,
+      "responseTimeMs": 85,
+      "id": "int-1794323783850-8t3pt",
+      "timestamp": "2026-11-10T15:16:23.850Z"
+    },
+    {
+      "userId": "test-senior",
+      "agentUsed": "education",
+      "intent": "EDUCATION",
+      "question": "How do I send photos on WhatsApp?",
+      "answer": "Here is the simplest way to do it, step-by-step:\n\n1. Gently tap the icon on your screen with the pad of your finger (like pressing a doorbell softly).\n2. If you need to see more, slide your finger smoothly up or down the glass.\n3. Remember: you cannot break your phone by exploring. If you ever feel lost, tap the round Home button at the bottom to return to safety.",
+      "language": "en",
+      "verificationStatus": "VERIFIED",
+      "confidenceScore": 0.95,
+      "responseTimeMs": 0,
+      "id": "int-1794323770854-aiz3k",
+      "timestamp": "2026-11-10T15:16:10.854Z"
+    },
+    {
+      "userId": "test-user",
+      "agentUsed": "education",
+      "intent": "EDUCATION",
+      "question": "How to send photo?",
+      "answer": "Tap paperclip icon and select picture.",
+      "language": "en",
+      "verificationStatus": "VERIFIED",
+      "confidenceScore": 0.95,
+      "responseTimeMs": 85,
+      "id": "int-1794323770852-22185",
+      "timestamp": "2026-11-10T15:16:10.852Z"
+    }
+  ],
+  "learningProgress": {
+    "demo-elder-dadi": {
+      "userId": "demo-elder-dadi",
+      "completedLessonIds": [
+        "touch-gestures",
+        "volume-controls"
+      ],
+      "inProgressLessonId": "screen-lock",
+      "quizScores": {
+        "touch-gestures": 100,
+        "volume-controls": 100
+      },
+      "totalMinutesSpent": 28,
+      "lastUpdated": "2026-11-10T15:16:10.643Z"
+    },
+    "test-user": {
+      "userId": "test-user",
+      "completedLessonIds": [
+        "whatsapp-photo"
+      ],
+      "quizScores": {
+        "whatsapp-photo": 100
+      },
+      "totalMinutesSpent": 20,
+      "lastUpdated": "2026-11-10T15:26:40.777Z"
+    }
+  },
+  "reminders": [
+    {
+      "id": "rem-1",
+      "userId": "demo-elder-dadi",
+      "title": "Morning Blood Pressure Medicine (Amlodipine 5mg)",
+      "time": "08:30",
+      "frequency": "daily",
+      "category": "medicine",
+      "completed": true,
+      "createdBy": "caregiver",
+      "audioAlert": true,
+      "notes": "Take with warm water after breakfast"
+    },
+    {
+      "id": "rem-2",
+      "userId": "demo-elder-dadi",
+      "title": "Afternoon Hydration (1 Glass Warm Water)",
+      "time": "14:00",
+      "frequency": "daily",
+      "category": "water",
+      "completed": false,
+      "createdBy": "elder",
+      "audioAlert": true
+    },
+    {
+      "id": "rem-3",
+      "userId": "demo-elder-dadi",
+      "title": "Evening Balcony Walk (15 mins gentle stroll)",
+      "time": "17:30",
+      "frequency": "daily",
+      "category": "walk",
+      "completed": false,
+      "createdBy": "caregiver",
+      "audioAlert": false
+    }
+  ],
+  "feedback": [],
+  "emergencies": [
+    {
+      "id": "emg-1794324383644",
+      "userId": "demo-elder-dadi",
+      "category": "fall",
+      "details": "Triggered by phrase: \"I fell down and my knee is bleeding\"",
+      "status": "triggered",
+      "timestamp": "2026-11-10T15:26:23.644Z"
+    }
+  ]
+}

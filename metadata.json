@@ -1,0 +1,6 @@
+{
+  "name": "Buddy Elder AI",
+  "description": "Unified elderly-support and digital-education platform featuring multi-agent AI, voice interaction, scam detection, smartphone simulator, and caregiver dashboard.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

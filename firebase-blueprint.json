@@ -1,0 +1,203 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "User profile with role, language preferences, accessibility, and emergency contacts",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["elderly_user", "caregiver", "admin"] },
+        "preferredLanguage": { "type": "string", "enum": ["en", "hi", "mr"] },
+        "fontSize": { "type": "string", "enum": ["normal", "large", "extra-large"] },
+        "highContrast": { "type": "boolean" },
+        "speechSpeed": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "name", "email", "role", "preferredLanguage"]
+    },
+    "AdminRecord": {
+      "title": "Admin Record",
+      "description": "Admin presence document",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "assignedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email"]
+    },
+    "Conversation": {
+      "title": "Conversation Session",
+      "description": "Chat session with AI Buddy agents",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "agentType": { "type": "string", "enum": ["learning", "safety", "support", "feedback", "research"] },
+        "title": { "type": "string" },
+        "language": { "type": "string", "enum": ["en", "hi", "mr"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "agentType", "title"]
+    },
+    "Message": {
+      "title": "Chat Message",
+      "description": "Single message in a conversation",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "conversationId": { "type": "string" },
+        "userId": { "type": "string" },
+        "sender": { "type": "string", "enum": ["user", "agent"] },
+        "text": { "type": "string" },
+        "agentType": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "conversationId", "sender", "text"]
+    },
+    "Progress": {
+      "title": "Course Progress",
+      "description": "Progress in an educational module",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "courseId": { "type": "string" },
+        "lessonId": { "type": "string" },
+        "completed": { "type": "boolean" },
+        "quizScore": { "type": "number" },
+        "completedAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "courseId", "lessonId", "completed"]
+    },
+    "SafetyCheck": {
+      "title": "Scam Analysis Record",
+      "description": "Result of scam or suspicious link check",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "messageSnippet": { "type": "string" },
+        "riskLevel": { "type": "string", "enum": ["safe", "suspicious", "high_risk"] },
+        "scamType": { "type": "string" },
+        "safeNextSteps": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "messageSnippet", "riskLevel"]
+    },
+    "Feedback": {
+      "title": "User Feedback",
+      "description": "Feedback rating and suggestions from elderly user",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "conversationId": { "type": "string" },
+        "rating": { "type": "number" },
+        "isHelpful": { "type": "boolean" },
+        "comment": { "type": "string" },
+        "agentType": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "rating", "isHelpful"]
+    },
+    "TrustedContact": {
+      "title": "Trusted Emergency Contact",
+      "description": "Elderly user emergency or family contact",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "relation": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "name", "phone"]
+    },
+    "CaregiverConnection": {
+      "title": "Caregiver Link",
+      "description": "Explicit consent authorization between elderly user and caregiver",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "elderlyUserId": { "type": "string" },
+        "elderlyUserName": { "type": "string" },
+        "caregiverEmail": { "type": "string" },
+        "caregiverUserId": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "active", "revoked"] },
+        "canViewProgress": { "type": "boolean" },
+        "canReceiveAlerts": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "elderlyUserId", "caregiverEmail", "status"]
+    },
+    "Document": {
+      "title": "Research Knowledge Document",
+      "description": "Academic paper or educational resource in the Knowledge Hub",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "category": { "type": "string" },
+        "author": { "type": "string" },
+        "year": { "type": "string" },
+        "summary": { "type": "string" },
+        "content": { "type": "string" },
+        "active": { "type": "boolean" },
+        "uploadedBy": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "title", "category", "content"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile documents"
+    },
+    "/admins/{userId}": {
+      "schema": "AdminRecord",
+      "description": "Admin whitelist documents"
+    },
+    "/conversations/{conversationId}": {
+      "schema": "Conversation",
+      "description": "User chat conversations"
+    },
+    "/conversations/{conversationId}/messages/{messageId}": {
+      "schema": "Message",
+      "description": "Messages inside conversation"
+    },
+    "/progress/{progressId}": {
+      "schema": "Progress",
+      "description": "Course learning progress records"
+    },
+    "/safetyChecks/{checkId}": {
+      "schema": "SafetyCheck",
+      "description": "Scam message scan records"
+    },
+    "/feedback/{feedbackId}": {
+      "schema": "Feedback",
+      "description": "User feedback and ratings"
+    },
+    "/contacts/{contactId}": {
+      "schema": "TrustedContact",
+      "description": "Trusted emergency contacts"
+    },
+    "/caregivers/{connectionId}": {
+      "schema": "CaregiverConnection",
+      "description": "Consent-based caregiver connections"
+    },
+    "/documents/{documentId}": {
+      "schema": "Document",
+      "description": "Research knowledge base papers and guides"
+    }
+  }
+}
